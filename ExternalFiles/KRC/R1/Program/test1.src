@@ -1,0 +1,18 @@
+﻿;Required declarations 
+DECL KrlMsg_T Message 
+DECL KrlMsgPar_T Parameter[3] 
+DECL KrlMsgOpt_T Opt 
+DECL INT Ticket 
+ 
+;Compile message 
+Message = {Modul[]"USER",Nr 2810,Msg_txt[]"This is a notification!"} 
+Parameter[1]= {Par_type #empty} 
+Parameter[2]= {Par_type #empty} 
+Parameter[3]= {Par_type #empty} 
+ 
+;Set message options 
+Opt = {VL_Stop TRUE, Clear_P_Reset TRUE, 
+       Clear_P_SAW FALSE, Log_To_DB FALSE} 
+ 
+;Generate message 
+Ticket = Set_KrlMsg (#Notify,Message,Parameter[],Opt) 
